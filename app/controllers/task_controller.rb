@@ -1,7 +1,7 @@
 class TaskController < ApplicationController
 
 	def index
-		if params[:filter].nil? or params[:filter] = ''
+		if params[:filter].nil?
 			@tasks = Task.all()
 		else
 			@tasks = Task.where("status = #{params[:filter]}")
@@ -19,7 +19,26 @@ class TaskController < ApplicationController
 		redirect_to task_index_url
 	end
 
+	def edit
+		@task = Task.find(params['id'])
+	end
+
+	def update
+		@task = Task.find(params['id'])
+		@task.update(task_params)
+		redirect_to task_index_url
+	end
+
+	def destroy
+		@task = Task.find(params['id'])
+		@task.destroy
+		redirect_to task_index_url
+	end
+
+	private
+
 	def task_params
 	    params.require(:task).permit(:descricao, :status)
 	end
+
 end
