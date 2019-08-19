@@ -24,8 +24,15 @@ class TaskController < ApplicationController
 	end
 
 	def update
+		@task = Task.find(params['id'])
 		@task.update(task_params)
-		redirect_to @task
+		redirect_to task_index_url
+	end
+
+	def destroy
+		@task = Task.find(params['id'])
+		@task.destroy
+		redirect_to task_index_url
 	end
 
 	private

@@ -1,7 +1,8 @@
-<%= form_with model: @task, url: task_index_url, local: true do |task| %>
+<%= form_with model: @task, local: true do |task| %>
   <%= task.label(:descricao, "Descrição da tarefa:") %>
   <%= task.text_field(:descricao) %>
   <%= task.label(:status, "Status da tarefa:") %>
   <%= task.select(:status, options_for_select([['TODO',:todo],['DONE',:done]])) %>
-  <%= task.submit("Criar") %>
+  <%= task.submit("Enviar") %>
 <% end %>
+<%= button_to "Deletar", task_url(@task.id), :method => "delete" %>
