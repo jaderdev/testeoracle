@@ -1,0 +1,21 @@
+<h1>Tasks</h1>
+<p>Aqui estão listadas todas as tasks cadastradas.</p>
+<table>
+  <thead>
+    <tr>
+      <th>Id</th>
+      <th>Descrição</th>
+      <th>status</th>
+    </tr>
+  </thead>
+ 
+  <tbody>
+    <% @tasks.each do |task| %>
+      <tr>
+        <td><%= task.id %></td>
+        <td><%= task.descricao %></td>
+        <td><%= task.status %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
