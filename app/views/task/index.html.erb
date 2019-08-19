@@ -2,9 +2,10 @@
 <p>Aqui estão listadas todas as tasks cadastradas.</p>
 <%= form_with url: task_index_url, method: 'get', local: true do |task| %>
   <%= task.label(:filter, "Filtrar tasks:") %>
-  <%= task.select(:filter, options_for_select([['Selecione',''],['TODO',0],['DONE',1]])) %>
+  <%= task.select(:filter, options_for_select([['Selecione','-1'],['TODO',0],['DONE',1]])) %>
   <%= task.submit("Filtrar") %>
 <% end %>
+  <%= button_to "Limpar", task_index_url, :method => "get" %>
 <table>
   <thead>
     <tr>
