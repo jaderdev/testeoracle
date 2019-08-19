@@ -1,7 +1,11 @@
 class TaskController < ApplicationController
 
 	def index
-		@tasks = Task.all()
+		if params[:filter].nil? or params[:filter] = ''
+			@tasks = Task.all()
+		else
+			@tasks = Task.where("status = #{params[:filter]}")
+		end
 	end
 
 	def new

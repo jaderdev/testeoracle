@@ -1,5 +1,10 @@
 <h1>Tasks</h1>
 <p>Aqui estão listadas todas as tasks cadastradas.</p>
+<%= form_with url: task_index_url, method: 'get', local: true do |task| %>
+  <%= task.label(:filter, "Filtrar tasks:") %>
+  <%= task.select(:filter, options_for_select([['Selecione',''],['TODO',0],['DONE',1]])) %>
+  <%= task.submit("Filtrar") %>
+<% end %>
 <table>
   <thead>
     <tr>
@@ -19,3 +24,5 @@
     <% end %>
   </tbody>
 </table>
+
+<%= link_to 'Nova task',new_task_url %>
