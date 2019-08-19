@@ -11,15 +11,5 @@ feature 'User create a new task' do
 		expect(page).to have_css('td',text: task.descricao)
 		expect(page).to have_css('td',text: task.status)
 	end
-
-	scenario 'and view task' do
-		skip('ainda não implementei')
-		task = Task.create!(descricao: 'aaaaaaaaaaaaaaa', status: 1)	
-	    
-		visit task_index_url
-
-	    expect(page).to have_css('td',text: task.descricao)
-	    expect(page).to have_css('td',text: task.status)
-	end
 end
 
