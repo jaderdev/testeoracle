@@ -11,6 +11,7 @@
       <th>Id</th>
       <th>Descrição</th>
       <th>status</th>
+      <th>------</th>
     </tr>
   </thead>
  
@@ -20,6 +21,9 @@
         <td><%= task.id %></td>
         <td><%= task.descricao %></td>
         <td><%= task.status %></td>
+        <td>
+          <%= link_to 'Editar',edit_task_url(task) %>
+        </td>
       </tr>
     <% end %>
   </tbody>

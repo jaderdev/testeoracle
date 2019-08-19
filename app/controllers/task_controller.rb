@@ -19,7 +19,19 @@ class TaskController < ApplicationController
 		redirect_to task_index_url
 	end
 
+	def edit
+		@task = Task.find(params['id'])
+	end
+
+	def update
+		@task.update(task_params)
+		redirect_to @task
+	end
+
+	private
+
 	def task_params
 	    params.require(:task).permit(:descricao, :status)
 	end
+
 end
