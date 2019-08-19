@@ -1,0 +1,5 @@
+<%= form_with model: @task,url: task_index_url, local: true do |task| %>
+  <%= task.label(:descricao, "Descrição da tarefa:") %>
+  <%= task.text_field(:descricao) %>
+  <%= task.submit("Criar") %>
+<% end %>
