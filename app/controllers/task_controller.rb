@@ -35,6 +35,13 @@ class TaskController < ApplicationController
 		redirect_to task_index_url
 	end
 
+	def toggle_status
+		@task = Task.find(params['id'])
+		@task.status = @task.status == 'todo' ? 'done' : 'todo'
+		@task.save()
+		redirect_to task_index_url
+	end
+
 	private
 
 	def task_params
