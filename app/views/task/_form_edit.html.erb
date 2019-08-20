@@ -1,8 +1,15 @@
-<%= form_with model: @task, local: true do |task| %>
-  <%= task.label(:descricao, "Descrição da tarefa:") %>
-  <%= task.text_field(:descricao) %>
-  <%= task.label(:status, "Status da tarefa:") %>
-  <%= task.select(:status, options_for_select([['TODO',:todo],['DONE',:done]])) %>
-  <%= task.submit("Enviar") %>
-<% end %>
-<%= button_to "Deletar", task_url(@task.id), :method => "delete" %>
+<div class="container-fluid">
+	<div class="row">
+		<div class="col-4"></div>
+		<div class="col-4" style="padding-top:40px">
+			<%= form_with model: @task,class: 'form-group', local: true do |task| %>
+			  <%= task.label(:descricao, "Descrição da tarefa:") %>
+			  <%= task.text_field :descricao, class: 'form-control' %>
+			  <%= task.label :status, "Status da tarefa:" %>
+			  <%= task.select :status, options_for_select([['TODO',:todo],['DONE',:done]]), class: 'form-control' %>
+			  <%= task.submit "Criar", class: 'form-control' %>
+			<% end %>
+		</div>
+		<div class="col-4"></div>
+	</div>
+</div>

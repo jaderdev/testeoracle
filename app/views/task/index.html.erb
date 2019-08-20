@@ -1,36 +1,46 @@
+<div class="container-fluid">
 <h1>Tasks</h1>
-<p>Aqui estão listadas todas as tasks cadastradas.</p>
-<%= form_with url: task_index_url, method: 'get', local: true do |task| %>
-  <%= task.label(:filter, "Filtrar tasks:") %>
-  <%= task.select(:filter, options_for_select([['Selecione','-1'],['TODO',0],['DONE',1]])) %>
-  <%= task.submit("Filtrar") %>
-<% end %>
-  <%= button_to "Limpar", task_index_url, :method => "get" %>
-<table>
-  <thead>
+<p class="text-muted">Aqui estão listadas todas as tasks cadastradas.</p>
+  <div class="row mb-2">
+      <div class="col-7">
+      <%= button_to 'Nova task',new_task_url, method: 'get', class: 'btn btn-info' %>
+      </div>
+      <div class="col-4">
+        <%= form_with url: task_index_url, method: 'get', local: true do |task| %>
+          <%= task.label(:filter, "Filtrar tasks:") %>
+          <%= task.select(:filter, options_for_select([['Selecione','-1'],['TODO',0],['DONE',1]])) %>
+          <%= task.submit("Filtrar") %>
+        <% end %>
+      </div>
+      <div class="col-1">
+        <%= button_to "Limpar", task_index_url, :method => "get", class: 'btn btn-info pr-2' %>
+      </div>
+  </div>
+</div>
+<table class="table">
+  <thead class="thead-dark">
     <tr>
-      <th>Id</th>
-      <th>Descrição</th>
-      <th>status</th>
-      <th colspan="2">------</th>
+      <th scope="col">Id</th>
+      <th scope="col">Descrição</th>
+      <th scope="col">status</th>
+      <th scope="col">#</th>
+      <th scope="col">#</th>
     </tr>
   </thead>
  
   <tbody>
     <% @tasks.each do |task| %>
       <tr>
-        <td><%= task.id %></td>
+        <th scope="row"><%= task.id %></th>
         <td><%= task.descricao %></td>
         <td><%= task.status %></td>
         <td>
-          <%= button_to 'Trocar status',toggle_status_url(task),:method => 'get' %>
+          <%= button_to 'Trocar status',toggle_status_url(task),:method => 'get', class: 'btn btn-info' %>
         </td>
         <td>
-          <%= button_to 'Editar',edit_task_url(task),:method => 'get' %>
+          <%= button_to 'Editar',edit_task_url(task),:method => 'get', class: 'btn btn-info' %>
         </td>
       </tr>
     <% end %>
   </tbody>
 </table>
-
-<%= link_to 'Nova task',new_task_url %>

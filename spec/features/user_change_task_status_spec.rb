@@ -7,6 +7,6 @@ feature 'User change task status' do
 		click_on 'Trocar status'
 
 		expect(page).to have_css('td',text: task.descricao)
-		expect(page).to have_css('td',text: 1)
+		expect(page).to have_css('td',text: 'done')
 	end
 end
