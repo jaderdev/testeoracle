@@ -15,8 +15,25 @@
   </head>
 
   <body>
-    <p class="notice"><%= notice %></p>
-   <p class="alert"><%= alert %></p>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <a class="navbar-brand" href="#">Oráculo</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#conteudoNavbarSuportado" aria-controls="conteudoNavbarSuportado" aria-expanded="false" aria-label="Alterna navegação">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="conteudoNavbarSuportado">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active">
+        <%= link_to "Home", task_index_url, :method => "get", class: 'nav-link' %>
+      </li>
+  </div>
+</nav>
+    <% if notice %>
+    <div class="alert alert-info" role="alert"><%= notice %></div>
+    <% end %>
+    <% if alert %>
+    <div class="alert alert-success" role="alert"><%= alert %></div>
+    <% end %>
     <%= yield %>
   </body>
 </html>
