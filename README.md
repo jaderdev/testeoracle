@@ -16,3 +16,8 @@ Utilize a ferramenta que preferir para os testes automatizados
 
 - Crie um clone deste repositório
 - Crie commits que reproduzam os passos do seu planejamento
+
+## observações do participante
+
+- Utilizei a gem 'devise' para fazer  a autheticação
+- Tive problemas para fazer autenticação automática então fiz manual em todos os testes (Por isso não entreguei no mesmo dia em que recebi)

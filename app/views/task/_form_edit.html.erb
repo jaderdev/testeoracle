@@ -2,7 +2,7 @@
 	<div class="row">
 		<div class="col-4"></div>
 		<div class="col-4" style="padding-top:40px">
-			<%= form_with model: @task, url: task_index_url,class: 'form-group', local: true do |task| %>
+			<%= form_with model: @task,class: 'form-group', local: true do |task| %>
 			  <%= task.label(:descricao, "Descrição da tarefa:") %>
 			  <%= task.text_field :descricao, class: 'form-control' %>
 			  <%= task.label :status, "Status da tarefa:" %>
@@ -10,6 +10,8 @@
 			  <%= task.submit "Criar", class: 'form-control' %>
 			<% end %>
 		</div>
-		<div class="col-4"></div>
+		<div class="col-4">
+			<%= button_to "Excluir", task_url(@task), method: 'delete', class: 'btn btn-danger' %>
+		</div>
 	</div>
 </div>
