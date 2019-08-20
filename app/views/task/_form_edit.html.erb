@@ -10,6 +10,8 @@
 			  <%= task.submit "Criar", class: 'form-control' %>
 			<% end %>
 		</div>
-		<div class="col-4"></div>
+		<div class="col-4">
+			<%= button_to "Excluir", task_url(@task), method: 'delete', class: 'btn btn-danger' %>
+		</div>
 	</div>
 </div>

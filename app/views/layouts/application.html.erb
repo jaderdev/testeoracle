@@ -27,6 +27,11 @@
         <%= link_to "Home", task_index_url, :method => "get", class: 'nav-link' %>
       </li>
   </div>
+    <% if user_signed_in? %>
+    <%= button_to 'Logout', destroy_user_session_url, method: 'delete', class: 'btn btn-outline-danger' %>
+    <% else %>
+    <%= button_to 'Login', new_user_session_url, method: 'get', class: 'btn btn-outline-success' %>
+    <% end %>
 </nav>
     <% if notice %>
     <div class="alert alert-info" role="alert"><%= notice %></div>
